@@ -1,0 +1,22 @@
+{
+  "name": "@tfdeepnet/visionlib",
+  "version": "1.0.0",
+  "description": "A npm package of pytorch cnn models",
+  "main": "__init__.py",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tfdeepnet/visionlib.git"
+  },
+  "author": "tfdeepnet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tfdeepnet/visionlib/issues"
+  },
+  "homepage": "https://github.com/tfdeepnet/visionlib#readme",
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/"
+  }
+}
