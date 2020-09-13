@@ -6,3 +6,8 @@ from .resnet import  resnet44
 from .resnet import  resnet56
 from .resnet import  resnet110
 from .resnet import  resnet1202
+from .kl_resnet import  ResNet18
+from .kl_resnet import  ResNet34
+from .kl_resnet import  ResNet50
+from .kl_resnet import  ResNet101
+from .kl_resnet import  ResNet152
