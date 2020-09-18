@@ -104,7 +104,7 @@ def summary_string(model, input_size, batch_size=-1, device=torch.device('cuda:0
         h.remove()
 
     summary_str += "-----------------------------------------------------------------------------------------------" + "\n"
-    line_new = "{:>20}  {:>25} {:>15} {:>15} {:>15}".format(
+    line_new = "{:>20} | {:>25} | {:>15} | {:>15} | {:>15}".format(
         "Layer (type)", "Output Shape", "Param #", "RF out", "Jump in")
     summary_str += line_new + "\n"
     summary_str += "===============================================================================================" + "\n"
@@ -113,7 +113,7 @@ def summary_string(model, input_size, batch_size=-1, device=torch.device('cuda:0
     trainable_params = 0
     for layer in summary:
         # input_shape, output_shape, trainable, nb_params
-        line_new = "{:>20}  {:>25} {:>15} {:>15} {:>15}".format(
+        line_new = "{:>20} | {:>25} | {:>15} | {:>15} | {:>15}".format(
             layer,
             str(summary[layer]["output_shape"]),
             "{0:,}".format(summary[layer]["nb_params"]),
