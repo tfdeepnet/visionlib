@@ -54,6 +54,6 @@ setup(
     author='Deepak',
     author_email='',
     description='pytorch cnn models for visualization'
-    install_requires=get_install_requirements(INSTALL_REQUIRES, CHOOSE_INSTALL_REQUIRES),
+    install_requires=get_install_requirements(INSTALL_REQUIRES, CHOOSE_INSTALL_REQUIRES)
    
 )
