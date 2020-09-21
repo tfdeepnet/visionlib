@@ -4,7 +4,7 @@ import numpy as np
 import random
 from collections import defaultdict
 
-from albumentations.augmentations.bbox_utils import BboxProcessor
+from ..augmentations.bbox_utils import BboxProcessor
 from albumentations.augmentations.keypoints_utils import KeypointsProcessor
 from albumentations.core.serialization import SERIALIZABLE_REGISTRY, instantiate_lambda
 from albumentations.core.serialization import SerializableMeta
