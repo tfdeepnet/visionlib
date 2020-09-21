@@ -1,5 +1,5 @@
 from __future__ import division
-from albumentations.core.utils import DataProcessor
+from ..core.utils import DataProcessor
 
 import numpy as np
 
