@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 from abc import ABCMeta, abstractmethod
 
-from ..core.six import string_types, add_metaclass
+from .six import string_types, add_metaclass
 
 
 def format_args(args_dict):
