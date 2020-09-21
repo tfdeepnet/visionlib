@@ -5,7 +5,7 @@ import random
 
 import numpy as np
 
-from visionlib.albumentations.augmentations.keypoints_utils import KeypointsProcessor
+from .albumentations.augmentations.keypoints_utils import KeypointsProcessor
 from albumentations.core.serialization import SerializableMeta
 from albumentations.core.six import add_metaclass
 from albumentations.core.transforms_interface import DualTransform
