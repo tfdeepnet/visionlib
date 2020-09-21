@@ -12,3 +12,4 @@ from .core import *
 from .augmentations import *
 
 from .imgaug import *
+from .pytorch import *
