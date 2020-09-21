@@ -1,4 +1,4 @@
-from distutils.core import setup,  find_namespace_packages
+from distutils.core import setup
 
 
 setup(
