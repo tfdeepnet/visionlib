@@ -7,7 +7,7 @@ import torch.utils.data
 import torchvision.transforms as transforms
 import torchvision.datasets
 import albumentations as A
-import albumentations.pytorch.transforms as tfm
+import albumentations.pytorch as tfm
 
 def loaddata(batch_size , datasetname = "Cifar10"):
 
