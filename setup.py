@@ -4,7 +4,7 @@ from distutils.core import setup
 setup(
     name='visionlib',
     version='1.0.0',
-    packages=["albumentations.*","models.*","utils.*"],
+    packages=[],
     url='git+https://github.com/tfdeepnet/visionlib.git',
     license='MIT',
     author='Deepak',
