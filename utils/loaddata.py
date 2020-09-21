@@ -29,7 +29,7 @@ def loaddata(batch_size , datasetname = "Cifar10"):
 
     test_transforms = A.Compose([
         #tfm.ToTensorV2(),
-        A.pytorch.ToTensorV2(),
+        A.pytorch.ToTensor(),
         A.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
         #transforms.Compose(
         #[transforms.ToTensor(),
