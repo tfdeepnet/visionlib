@@ -20,7 +20,7 @@ def loaddata(batch_size , datasetname = "Cifar10"):
         A.HueSaturationValue(hue_shift_limit=10, sat_shift_limit=10, val_shift_limit=10, p=0.3),
         A.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.9, rotate_limit=10, p=0.3),
         #tfm.ToTensorV2(),
-        A.pytorch.ToTensorV2(),
+        A.pytorch.ToTensor(),
         A.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
         #transforms.RandomAffine(degrees=10, translate=(0.1,0.1), scale=(0.9, 1.1)),
         #transforms.ColorJitter(brightness=0.10, contrast=0.1, saturation=0.10, hue=0.1),
