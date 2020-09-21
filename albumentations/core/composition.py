@@ -5,12 +5,12 @@ import random
 from collections import defaultdict
 
 from ..augmentations.bbox_utils import BboxProcessor
-from albumentations.augmentations.keypoints_utils import KeypointsProcessor
-from albumentations.core.serialization import SERIALIZABLE_REGISTRY, instantiate_lambda
-from albumentations.core.serialization import SerializableMeta
-from albumentations.core.six import add_metaclass
-from albumentations.core.transforms_interface import DualTransform
-from albumentations.core.utils import format_args, Params
+from ..augmentations.keypoints_utils import KeypointsProcessor
+from .serialization import SERIALIZABLE_REGISTRY, instantiate_lambda
+from .serialization import SerializableMeta
+from .six import add_metaclass
+from .transforms_interface import DualTransform
+from .utils import format_args, Params
 
 __all__ = ["Compose", "OneOf", "OneOrOther", "BboxParams", "KeypointParams", "ReplayCompose"]
 
