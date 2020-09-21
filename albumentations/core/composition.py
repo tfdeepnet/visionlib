@@ -1,17 +1,16 @@
 from __future__ import division
-from collections import defaultdict
-
-import random
 
 import numpy as np
+import random
+from collections import defaultdict
 
-from .albumentations.augmentations.keypoints_utils import KeypointsProcessor
+from albumentations.augmentations.bbox_utils import BboxProcessor
+from albumentations.augmentations.keypoints_utils import KeypointsProcessor
+from albumentations.core.serialization import SERIALIZABLE_REGISTRY, instantiate_lambda
 from albumentations.core.serialization import SerializableMeta
 from albumentations.core.six import add_metaclass
 from albumentations.core.transforms_interface import DualTransform
 from albumentations.core.utils import format_args, Params
-from albumentations.augmentations.bbox_utils import BboxProcessor
-from albumentations.core.serialization import SERIALIZABLE_REGISTRY, instantiate_lambda
 
 __all__ = ["Compose", "OneOf", "OneOrOther", "BboxParams", "KeypointParams", "ReplayCompose"]
 
