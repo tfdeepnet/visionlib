@@ -14,8 +14,8 @@ import albumentations as A
 from albumentations.pytorch import ToTensor
 
 
-train_csv = "cifar10/train.csv"
-test_csv = "cifar10/test.csv"
+train_csv = "train.csv"
+test_csv = "test.csv"
 
 train_folder = "cifar10/train"
 test_folder = "cifar10/test"
