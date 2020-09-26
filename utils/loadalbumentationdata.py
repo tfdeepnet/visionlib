@@ -72,7 +72,7 @@ def loadalbumentationdata(datafolder , batch_size ):
     albumentations_transform_train = A.Compose([
         A.HueSaturationValue(hue_shift_limit=20, sat_shift_limit=20, val_shift_limit=10, p=0.3),
         A.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.9, rotate_limit=10, p=0.3),
-        #A.HorizontalFlip(),
+        A.HorizontalFlip(),
         A.Normalize(
             mean=[0.5, 0.5, 0.5],
             std=[0.5, 0.5, 0.5],
