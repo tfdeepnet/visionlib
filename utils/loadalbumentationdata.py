@@ -48,7 +48,7 @@ class AlbumentationsDataset(Dataset):
             image = augmented['image']
         end  = time.time()
         time_spent = (end-start)/60
-        print(f"{time_spent:.3} minutes")
+        #print(f"{time_spent:.3} minutes")
         return image, label
 
 

@@ -15,7 +15,7 @@ def train(epoch,  trainloader, optimizer, net, criterion, num_bucket,device):
         # get the inputs
         inputs, labels = data
         inputs, labels = inputs.to(device), labels.to(device)
-        print("count {}".format(i))
+        ##print("count {}".format(i))
         # zero the parameter gradients
         optimizer.zero_grad()
 
