@@ -7,7 +7,7 @@ import os
 import torch
 from torch.utils.data import Dataset
 from torchvision import transforms
-
+from PIL import Image
 
 import albumentations as A
 from albumentations.pytorch import ToTensor
