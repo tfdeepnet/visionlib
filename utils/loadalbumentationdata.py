@@ -26,13 +26,14 @@ class AlbumentationsDataset(Dataset):
         self.file_paths = file_paths
         self.labels = labels
         self.transform = transform
+        self.datafolder = datafolder
 
     def __len__(self):
         return len(self.file_paths)
 
     def __getitem__(self, idx):
         label = self.labels[idx]
-        file_path = os.path.join(datafolder , self.file_paths[idx])
+        file_path = os.path.join(self.datafolder , self.file_paths[idx])
 
         # Read an image with OpenCV
         image = cv2.imread(file_path)
