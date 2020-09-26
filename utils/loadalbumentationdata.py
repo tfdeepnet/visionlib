@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 import pandas as pd
 import os
+import time
 
 import torch
 from torch.utils.data import Dataset
@@ -32,6 +33,7 @@ class AlbumentationsDataset(Dataset):
         return len(self.file_paths)
 
     def __getitem__(self, idx):
+        start = time.time()
         label = self.labels[idx]
         file_path = os.path.join(self.datafolder , self.file_paths[idx])
 
@@ -44,6 +46,9 @@ class AlbumentationsDataset(Dataset):
         if self.transform:
             augmented = self.transform(image=image)
             image = augmented['image']
+        end  = time.time()
+        time_spent = (end-start)/60
+        print(f"{time_spent:.3} minutes")
         return image, label
 
 
