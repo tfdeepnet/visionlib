@@ -99,8 +99,9 @@ def loadalbumentationdata(datafolder , batch_size ):
                                                batch_size=batch_size,
                                                shuffle=True,
                                                num_workers=2)
-    train_loader = torch.utils.data.DataLoader(albumentations_test_dataset,
+    test_loader = torch.utils.data.DataLoader(albumentations_test_dataset,
                                                batch_size=batch_size,
                                                shuffle=False,
                                                num_workers=2)
 
+    return train_loader, test_loader
