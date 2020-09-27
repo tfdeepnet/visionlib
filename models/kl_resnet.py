@@ -41,7 +41,7 @@ class BasicBlock(nn.Module):
         if (self.stride == 2):
             out = self.pool1(out)
         out = self.bn2(self.conv2(out))
-        print(" x shp {} o shp {}".format(x.shape,out.shape))
+        #print(" x shp {} o shp {}".format(x.shape,out.shape))
         out += self.shortcut(x)
         out = F.relu(out)
         return out
