@@ -28,7 +28,7 @@ def getclassvalidationAccuracy(model, testdata, classes, device):
             classes[i], 100 * class_correct[i] / class_total[i]))
 
 
-def view_misclassified_images(misclassified_images):
+def view_misclassified_images(misclassified_images , classes):
     fig = plt.figure(figsize=(8, 8))
     for i in range(25):
         sub = fig.add_subplot(5, 5, i + 1)
