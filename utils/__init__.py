@@ -13,3 +13,6 @@ from .utils import view_misclassified_images
 from .utils import plot_train_vs_test_accuracy
 from .gradcam import GradCAM
 from .gradcam import visualize_cam
+from .lr_finder import LRFinder
+from .lr_finder import LinearLR
+from .lr_finder import ExponentialLR
