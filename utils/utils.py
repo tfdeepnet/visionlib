@@ -4,7 +4,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from ..models.kl_resnet import *
-
+import matplotlib.pyplot as plt
+import numpy as np
+import torchvision
 
 def getclassvalidationAccuracy(model, testdata, classes, device):
     class_correct = list(0. for i in range(10))
@@ -78,11 +80,11 @@ def get_validation_result_and_misclassifiedimages(model,
 
     if (printClassAccuracy):
         for i in range(10):
-            print('Accuracy of %5s : %2d %%' % (
+            print('Class accuracy \n Accuracy of %5s : %2d %% \n' % (
                 classes[i], 100 * class_correct[i] / class_total[i]))
 
     if (printValidationAccuracy):
-        print('Accuracy of the network on the 10000 test images: %.2f %%' % (
+        print('\n Accuracy of the network on the 10000 test images: %.2f %%' % (
                 100 * correct / total))
 
     return misclassified_images
