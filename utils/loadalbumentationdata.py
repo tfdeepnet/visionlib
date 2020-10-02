@@ -58,7 +58,7 @@ def getfdatadf(datafolder , file_path):
     file_path = os.path.join(datafolder ,file_path)
     return pd.read_csv(file_path)
 
-def loadalbumentationdata(datafolder , batch_size ):
+def loadalbumentationdata(datafolder , batch_size , train_transform_list , test_transform_list):
 
     train_df = getfdatadf(datafolder , train_csv)
     test_df = getfdatadf(datafolder , test_csv)
@@ -69,30 +69,39 @@ def loadalbumentationdata(datafolder , batch_size ):
     X_test =test_df["image_path"]
     Y_test =test_df["label"]
 
-    albumentations_transform_train = A.Compose([
-        A.HueSaturationValue(hue_shift_limit=20, sat_shift_limit=20, val_shift_limit=10, p=0.3),
-        A.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.9, rotate_limit=10, p=0.3),
-        #A.HorizontalFlip(),
-        #A.Rotate((-30.0, 30.0)),
-        #A.HorizontalFlip(),
-        #A.RGBShift(r_shift_limit=50, g_shift_limit=50, b_shift_limit=50, p=0.5),
+    def composetransormlist(transform_list):
+        transform_list.append(ToTensor())
+        return A.Compose(transform_list)
 
-        A.Normalize(
-            mean=[0.5, 0.5, 0.5],
-            std=[0.5, 0.5, 0.5],
-        ),
-        ToTensor()
 
-    ])
+    albumentations_transform_train = composetransormlist(train_transform_list)
 
-    albumentations_transform_test = A.Compose([
+    # """A.Compose([
+    #     A.HueSaturationValue(hue_shift_limit=20, sat_shift_limit=20, val_shift_limit=10, p=0.3),
+    #     A.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.9, rotate_limit=10, p=0.3),
+    #     #A.HorizontalFlip(),
+    #     #A.Rotate((-30.0, 30.0)),
+    #     #A.HorizontalFlip(),
+    #     #A.RGBShift(r_shift_limit=50, g_shift_limit=50, b_shift_limit=50, p=0.5),
+    #
+    #     A.Normalize(
+    #         mean=[0.5, 0.5, 0.5],
+    #         std=[0.5, 0.5, 0.5],
+    #     ),
+    #     ToTensor()
+    #
+    # ])"""
 
-        A.Normalize(
-            mean=[0.5, 0.5, 0.5],
-            std=[0.5, 0.5, 0.5],
-        ),
-        ToTensor()
-    ])
+    albumentations_transform_test = composetransormlist(test_transform_list)
+
+    #     A.Compose([
+    #
+    #     A.Normalize(
+    #         mean=[0.5, 0.5, 0.5],
+    #         std=[0.5, 0.5, 0.5],
+    #     ),
+    #     ToTensor()
+    # ])
 
     albumentations_train_dataset = AlbumentationsDataset(
         datafolder,
