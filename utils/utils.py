@@ -79,8 +79,9 @@ def get_validation_result_and_misclassifiedimages(model,
                 class_total[label] += 1
 
     if (printClassAccuracy):
+        print("Class accuracy \n")
         for i in range(10):
-            print('Class accuracy \n Accuracy of %5s : %2d %% \n' % (
+            print('Accuracy of %5s : %2d %% \n' % (
                 classes[i], 100 * class_correct[i] / class_total[i]))
 
     if (printValidationAccuracy):
