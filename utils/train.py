@@ -10,14 +10,14 @@ from tqdm import tqdm
 
 
 def train(epoch,  trainloader, optimizer, net, criterion, num_bucket,device):
-
+    net.train()
     running_loss = 0.0
     correct = 0
     processed = 0
 
-    #pbar = tqdm(trainloader)
+    pbar = tqdm(trainloader)
 
-    for idx, data in enumerate(trainloader, 0):
+    for idx, data in enumerate(pbar) : #trainloader, 0):
         # get the inputs
         inputs, labels = data
         inputs, labels = inputs.to(device), labels.to(device)
@@ -31,18 +31,18 @@ def train(epoch,  trainloader, optimizer, net, criterion, num_bucket,device):
         loss.backward()
         optimizer.step()
 
-        # _, predicted = torch.max(outputs.data, 1)
-        # processed += labels.size(0)
-        # correct += (predicted == labels).sum().item()
+        _, predicted = torch.max(outputs.data, 1)
+        processed += labels.size(0)
+        correct += (predicted == labels).sum().item()
 
         # print statistics
-        running_loss += loss.item()
-        if idx % (num_bucket) == 0:    # print every 2000 mini-batches
-             print('[%d, %5d] loss: %.3f' %
-                   (epoch + 1, idx + 1, running_loss / (num_bucket)))
-             running_loss = 0.0
+        # running_loss += loss.item()
+        # if idx % (num_bucket) == 0:    # print every 2000 mini-batches
+        #      print('[%d, %5d] loss: %.3f' %
+        #            (epoch + 1, idx + 1, running_loss / (num_bucket)))
+        #      running_loss = 0.0
 
-        #pbar.set_description(desc= f'Loss={loss.item()} Batch_id={idx} Accuracy={100*correct/processed:0.2f}')
+        pbar.set_description(desc= f'Loss={loss.item()} Batch_id={idx} Accuracy={100*correct/processed:0.2f}')
 
 train_losses = []
 train_acc = []
