@@ -1,4 +1,5 @@
 from .train import train
+from .train import train_metrics
 from .test import test
 from .loaddata import loaddata
 from .torchsummarywithrf import summary
