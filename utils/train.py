@@ -36,11 +36,11 @@ def train(epoch,  trainloader, optimizer, net, criterion, num_bucket,device):
         correct += (predicted == labels).sum().item()
 
         # print statistics
-        # running_loss += loss.item()
-        # if i % (num_bucket) == 0:    # print every 2000 mini-batches
-        #     print('[%d, %5d] loss: %.3f' %
-        #           (epoch + 1, i + 1, running_loss / (num_bucket)))
-        #     running_loss = 0.0
+        running_loss += loss.item()
+        if i % (num_bucket) == 0:    # print every 2000 mini-batches
+             print('[%d, %5d] loss: %.3f' %
+                   (epoch + 1, i + 1, running_loss / (num_bucket)))
+             running_loss = 0.0
 
         pbar.set_description(desc= f'Loss={loss.item()} Batch_id={idx} Accuracy={100*correct/processed:0.2f}')
 
