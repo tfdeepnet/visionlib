@@ -400,13 +400,17 @@ class LRFinder(object):
             else:
                 total_loss += loss
 
+            _, predicted = torch.max(outputs.data, 1)
+            processed += labels.size(0)
+            correct += (predicted == labels).sum().item()
+
+            print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.2f}%)\n'.format(
+                total_loss, correct, processed,
+                100. * correct / processed))
+
         self.optimizer.step()
 
-        _, predicted = torch.max(outputs.data, 1)
-        processed += labels.size(0)
-        correct += (predicted == labels).sum().item()
 
-        print(100*correct/processed)
 
         return total_loss.item()
 
