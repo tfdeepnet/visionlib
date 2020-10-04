@@ -339,6 +339,8 @@ class LRFinder(object):
 
             # Check if the loss has diverged; if it has, stop the test
             self.history["loss"].append(loss)
+
+            print(" loss set {}".format(loss))
             if loss > diverge_th * self.best_loss:
                 print("Stopping early, the loss has diverged")
                 break
