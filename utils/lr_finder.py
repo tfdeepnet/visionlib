@@ -449,6 +449,7 @@ class LRFinder(object):
                 loss = self.criterion(outputs, labels)
                 running_loss += loss.item() * len(labels)
 
+        print("val loss set {}".format(running_loss / len(val_iter.dataset)))
         return running_loss / len(val_iter.dataset)
 
     def plot(
