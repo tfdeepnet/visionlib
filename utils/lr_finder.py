@@ -406,7 +406,7 @@ class LRFinder(object):
             processed += labels.size(0)
             correct += (predicted == labels).sum().item()
 
-            print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.2f}%)\n'.format(
+            print('\nTrain set: Average loss: {:.4f}, Accuracy: {}/{} ({:.2f}%)\n'.format(
                 total_loss.item(), correct, processed,
                 100. * correct / processed))
 
@@ -436,6 +436,9 @@ class LRFinder(object):
     def _validate(self, val_iter, non_blocking_transfer=True):
         # Set model to evaluation mode and disable gradient computation
         running_loss = 0
+        correct = 0
+        processed = 0
+
         self.model.eval()
         with torch.no_grad():
             for inputs, labels in val_iter:
@@ -449,7 +452,17 @@ class LRFinder(object):
                 loss = self.criterion(outputs, labels)
                 running_loss += loss.item() * len(labels)
 
-        print("val loss set {}".format(running_loss / len(val_iter.dataset)))
+                _, predicted = torch.max(outputs.data, 1)
+                processed += labels.size(0)
+                correct += (predicted == labels).sum().item()
+
+
+        print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.2f}%)\n'.format(
+            running_loss / len(val_iter.dataset), correct, processed,
+                100. * correct / processed))
+
+
+
         return running_loss / len(val_iter.dataset)
 
     def plot(
