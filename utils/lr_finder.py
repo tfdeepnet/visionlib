@@ -405,7 +405,7 @@ class LRFinder(object):
             correct += (predicted == labels).sum().item()
 
             print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.2f}%)\n'.format(
-                total_loss, correct, processed,
+                total_loss.item(), correct, processed,
                 100. * correct / processed))
 
         self.optimizer.step()
