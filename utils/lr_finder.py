@@ -365,6 +365,8 @@ class LRFinder(object):
     def _train_batch(self, train_iter, accumulation_steps, non_blocking_transfer=True):
         self.model.train()
         total_loss = None  # for late initialization
+        correct = 0
+        processed = 0
 
         self.optimizer.zero_grad()
         for i in range(accumulation_steps):
@@ -399,6 +401,12 @@ class LRFinder(object):
                 total_loss += loss
 
         self.optimizer.step()
+
+        _, predicted = torch.max(outputs.data, 1)
+        processed += labels.size(0)
+        correct += (predicted == labels).sum().item()
+
+        print(100*correct/processed)
 
         return total_loss.item()
 
