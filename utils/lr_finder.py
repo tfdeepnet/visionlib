@@ -328,6 +328,7 @@ class LRFinder(object):
             self.history["lr"].append(lr_schedule.get_lr()[0])
             lr_schedule.step()
 
+            print(" before loss set {}".format(loss))
             # Track the best loss and smooth it if smooth_f is specified
             if iteration == 0:
                 self.best_loss = loss
