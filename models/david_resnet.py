@@ -53,11 +53,11 @@ class BasicBlock(nn.Module):
         return out
 
 class TransitionBlock(nn.Module):
-
+    expansion = 1
     def __init__(self, in_planes, planes, stride=1):
         super(TransitionBlock, self).__init__()
         self.stride = stride
-        
+
         self.conv1 = nn.Conv2d(
             in_planes, planes, kernel_size=3, stride=1, padding=1, bias=False)
         self.bn1 = nn.BatchNorm2d(planes)
