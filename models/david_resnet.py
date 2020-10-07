@@ -134,28 +134,9 @@ class ResNet(nn.Module):
 def DavidResNet():
     return ResNet(BasicBlock, [1, 1, 1])
 
-def ResNet18():
-    return ResNet(BasicBlock, [2, 2, 2, 2])
-
-
-def ResNet34():
-    return ResNet(BasicBlock, [3, 4, 6, 3])
-
-
-def ResNet50():
-    return ResNet(Bottleneck, [3, 4, 6, 3])
-
-
-def ResNet101():
-    return ResNet(Bottleneck, [3, 4, 23, 3])
-
-
-def ResNet152():
-    return ResNet(Bottleneck, [3, 8, 36, 3])
-
 
 def test():
-    net = ResNet18()
+    net = DavidResNet()
     y = net(torch.randn(1, 3, 32, 32))
     print(y.size())
 

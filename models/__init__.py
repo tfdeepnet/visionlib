@@ -11,3 +11,4 @@ from .kl_resnet import  ResNet34
 from .kl_resnet import  ResNet50
 from .kl_resnet import  ResNet101
 from .kl_resnet import  ResNet152
+from .david_resnet import DavidResNet
