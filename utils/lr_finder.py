@@ -316,6 +316,7 @@ class LRFinder(object):
                 )
 
         for iteration in tqdm(range(num_iter)):
+            print("iter {}".format(iteration))
             # Train on batch and retrieve loss
             loss , accuracy = self._train_batch(
                 train_iter,
@@ -333,7 +334,7 @@ class LRFinder(object):
 
             lr_schedule.step()
 
-            print(" before loss set {}".format(loss))
+            #print(" before loss set {}".format(loss))
             # Track the best loss and smooth it if smooth_f is specified
             if iteration == 0:
                 self.best_loss = loss
@@ -348,7 +349,7 @@ class LRFinder(object):
             self.history_accy["loss"].append(loss)
             self.history_accy["accuracy"].append(accuracy)
 
-            print(" loss set {}".format(loss))
+            #print(" loss set {}".format(loss))
             if loss > diverge_th * self.best_loss:
                 print("Stopping early, the loss has diverged")
                 break
