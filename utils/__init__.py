@@ -17,3 +17,5 @@ from .gradcam import visualize_cam
 from .lr_finder import LRFinder
 from .lr_finder import LinearLR
 from .lr_finder import ExponentialLR
+from .cyclical_lr import one_Cycle_lr
+from .cyclical_lr import cyclical_lr
