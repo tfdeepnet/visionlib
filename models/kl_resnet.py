@@ -108,7 +108,9 @@ class ResNet(nn.Module):
         out = self.layer4(out)
         out = F.avg_pool2d(out, 4)
         out = out.view(out.size(0), -1)
+        print("bf linear {}".format(out.shape))
         out = self.linear(out)
+        print("bf linear after {}".format(out.shape))
         return out
 
 
