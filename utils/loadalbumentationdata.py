@@ -39,7 +39,7 @@ class AlbumentationsDataset(Dataset):
 
         # Read an image with OpenCV
         image = cv2.imread(file_path)
-        #print("fp {} img {}".format(file_path , image))
+        print("fp {} img {}".format(file_path , image))
         # By default OpenCV uses BGR color space for color images,
         # so we need to convert the image to RGB color space.
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
