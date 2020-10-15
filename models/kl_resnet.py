@@ -106,7 +106,7 @@ class ResNet(nn.Module):
         out = self.layer2(out)
         out = self.layer3(out)
         out = self.layer4(out)
-        print("bf ap  {}".format(out.shape))
+        print("bf ap  {} kernel {} ".format(out.shape, out.shape[2]))
         out = F.avg_pool2d(out, 4)
         print("bf ap after {}".format(out.shape))
         out = out.view(out.size(0), -1)
