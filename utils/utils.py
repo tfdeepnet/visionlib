@@ -55,8 +55,10 @@ def get_validation_result_and_misclassifiedimages(model,
     correct = 0
     total = 0
 
-    class_correct = list(0. for i in range(10))
-    class_total = list(0. for i in range(10))
+    class_length = len(classes)
+
+    class_correct = list(0. for i in range(class_length))
+    class_total = list(0. for i in range(class_length))
 
     with torch.no_grad():
         for images, labels in test_loader:
